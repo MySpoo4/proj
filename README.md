@@ -1,4 +1,9 @@
 # spiel_assignment
+Requirements
+- Expo Go (App)
+- Node.js (To run the server.js which starts up the server)
+- Phone and computer used to run the server needs to be on the same network
+
 
 Install the app "Expo Go" to run the app later on.
 
