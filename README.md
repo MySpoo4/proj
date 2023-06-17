@@ -1,6 +1,6 @@
 # spiel_assignment
 
-Install "Expo Go" to run the app later on.
+Install the app "Expo Go" to run the app later on.
 
 Edit the .env file in the spiel folder.
 ```
