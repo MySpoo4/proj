@@ -1,4 +1,4 @@
-import {View, StyleSheet, TextInput, Pressable} from 'react-native'
+import {View, StyleSheet, TextInput, Pressable, Animated} from 'react-native'
 import {useState, useEffect} from 'react'
 import * as Font from 'expo-font';
 import Svg, {Path}  from 'react-native-svg';
@@ -23,6 +23,23 @@ function SearchBar(props){
         return null;
     }
 
+    const animated = new Animated.Value(1);
+
+    const fadeIn = () => {
+        Animated.timing(animated, {
+          toValue: 0.4,
+          duration: 150,
+          useNativeDriver: true,
+        }).start();
+      };
+    const fadeOut = () => {
+    Animated.timing(animated, {
+        toValue: 1,
+        duration: 150,
+        useNativeDriver: true,
+    }).start();
+    };
+
     return(
         <View style={styles.container}>
             <View style={styles.magContainer}>
@@ -31,10 +48,12 @@ function SearchBar(props){
                 </Svg>
             </View>
             <View style={styles.xContainer}>
-                <Pressable onPress={() => {changeText('');}} style={styles.xButton}>
-                    <Svg style={pressed != true? [styles.xIcon,{opacity:0}]:styles.xIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-                    <Path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
-                    </Svg>
+                <Pressable onPressIn={()=>{fadeIn()}} onPressOut={()=>{fadeOut()}} onPress={() => {changeText('');}} style={styles.xButton}>
+                    <Animated.View style={{opacity:animated}}>
+                        <Svg style={pressed != true? [styles.xIcon,{opacity:0}]:styles.xIcon} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
+                        <Path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                        </Svg>
+                    </Animated.View>
                 </Pressable>
             </View>
             <TextInput
@@ -48,13 +67,6 @@ function SearchBar(props){
             onChangeText={(content) => {changeText(content);}}
             value={text}
             />
-            {pressed? 
-            <View style={styles.cancel}> 
-
-            </View>
-            :
-            null
-            }
         </View>
     );
 }
@@ -63,15 +75,15 @@ export default SearchBar;
 
 const styles = new StyleSheet.create({
     container:{
-        flex: 1,
+        height: '50%',
+        width: '88%',
         flexDirection: 'row',
-        marginHorizontal: 24,
-        marginTop: 15,
+        marginHorizontal: '6%',
+        marginTop: '12%',
         borderRadius: 48,
         backgroundColor: '#F7F7F7',
         justifyContent: 'center',
-        alignItems: 'center',
-        zIndex: 1
+        alignItems: 'center',  
     },
     input:{
         fontSize: 16,
@@ -88,10 +100,10 @@ const styles = new StyleSheet.create({
         justifyContent:'center',
     },
     magIcon:{
-        marginLeft:'22%',
+        marginLeft:'23%',
         color:'#717171',
         width:'10%',
-        height:'50%',
+        height:'45%',
     },
     xContainer:{
         position: 'absolute',

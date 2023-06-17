@@ -48,7 +48,7 @@ function Invite(){
                 </View>
             </View>
             <View style={styles.right}>
-                <Animated.View style={{opacity:animated}}>
+                <Animated.View style={[{opacity:animated},styles.animatedContainer]}>
                     <Pressable onPressIn={fadeIn} onPressOut={fadeOut} style={styles.iconContainer}>
                             <Svg style={styles.icon} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <Path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
@@ -62,11 +62,12 @@ function Invite(){
 
 const styles = new StyleSheet.create({
     container:{
-        flex:1,
+        height: '80%',
         backgroundColor: 'white',
         flexDirection: 'row',
         marginVertical: 10,
         marginHorizontal: 24,
+        marginBottom: 15,
         borderRadius: 15,
         borderWidth: 1,
         borderColor: '#DDDDDD',
@@ -81,7 +82,7 @@ const styles = new StyleSheet.create({
     right:{
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     titleContainer:{
         flex: 5,
@@ -110,9 +111,9 @@ const styles = new StyleSheet.create({
     iconContainer:{
         borderWidth: 1,
         borderColor: '#DDDDDD',
-        height: 50,
-        width:  50,
-        borderRadius: 25,
+        height: '55%',
+        aspectRatio: 1,
+        borderRadius: 999,
         justifyContent: 'center'
     },
     icon:{
@@ -120,7 +121,12 @@ const styles = new StyleSheet.create({
         color: 'black',
         marginBottom: 3,
     },
-    
+    animatedContainer:{
+        height: '100%',
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
 })
 
 export default Invite

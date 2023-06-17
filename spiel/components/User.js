@@ -72,7 +72,7 @@ const container = (height) => {
             flex: 1,
             flexDirection: 'row',
             height: height,
-            marginBottom: 9,
+            marginBottom: 7,
         },
     }));
 }
@@ -86,14 +86,17 @@ const styles = StyleSheet.create({
     nameContainer:{
         flex:1,
         justifyContent: 'center',
+        marginTop: '5%'
     },
     tagContainer:{
         flex:1,
         justifyContent: 'center',
+        marginBottom: '5%'
     },
     img:{
-        width:56,
-        height:56
+        height: '85%',
+        minHeight: 55,
+        aspectRatio: 1
     },
     name:{
         fontFamily: 'black',

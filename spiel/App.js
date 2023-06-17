@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import UserList from './components/UserList';
 import Invite from './components/Invite';
 import SearchBar from './components/SearchBar';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
   const [search,setSearch] = useState(false);
@@ -21,6 +22,7 @@ export default function App() {
   !search ? ycor.setValue({x:0,y:500}):moveUp()
   return (
     <View style={styles.container}>
+      <StatusBar style="dark" />
       { !search?
         <View style={styles.innerContainer}>
           <View style={styles.searchBarContainer}>
@@ -68,22 +70,23 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   userlist:{
-    flex:34,
+    flex:30,
     width: '100%',
     height: '100%',
   },
   searchList:{
-    flex:42,
+    flex:37,
     width: '100%',
     height: '100%',
     marginTop: 15,
   },
   searchBarContainer:{
-    flex:5, 
-    width: '100%'
+    flex:7, 
+    width: '100%',
+    backgroundColor: '#FFFFFF',
   },
   inviteContainer:{
     flex:8, 
-    width: '100%'
+    width: '100%',
   }
 });
