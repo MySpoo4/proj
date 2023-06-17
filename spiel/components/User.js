@@ -1,11 +1,9 @@
-
 import {useState, useEffect} from 'react';
-
 import {StyleSheet, View, Text,Image,Pressable, Animated} from 'react-native';
-
 import * as Font from 'expo-font';
+import {IP_ADDRESS} from '@env'
 
-const url = 'http://192.168.1.2:5000/users/picture/'
+const url = `http://${IP_ADDRESS}:5000/users/picture/`
 
 function User(props){
     const [image, setImage] = useState(null);

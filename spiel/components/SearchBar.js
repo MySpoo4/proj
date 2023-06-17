@@ -40,7 +40,6 @@ function SearchBar(props){
             <TextInput
             style={styles.input}
             maxLength={30}
-            autoComplete = {false}
             autoCorrect = {false}
             onFocus={()=>{changePress(true);}}
             onEndEditing={()=>{changePress(false)}}

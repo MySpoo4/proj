@@ -1,8 +1,10 @@
 import {useEffect, useState} from 'react';
 import {StyleSheet, View, Dimensions,FlatList} from 'react-native';
 import User from './User';
+import {IP_ADDRESS} from '@env'
+console.log(IP_ADDRESS)
 
-const url = "http://192.168.1.4:5000/users/";
+const url = `http://192.168.1.2:5000/users/`;
 function UserList(props) {
   const { height, width } = Dimensions.get('window');
     const [users,setUsers] = useState([]);
