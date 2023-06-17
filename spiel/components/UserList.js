@@ -3,7 +3,12 @@ import {StyleSheet, View, Dimensions,FlatList} from 'react-native';
 import User from './User';
 import {IP_ADDRESS} from '@env'
 
+if(IP_ADDRESS == null){
+  console.log('input IP_ADDRESS into the .env file in the root dir')
+}
+
 const url = `http://${IP_ADDRESS}:5000/users/`;
+
 function UserList(props) {
   const { height, width } = Dimensions.get('window');
     const [users,setUsers] = useState([]);

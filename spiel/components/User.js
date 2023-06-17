@@ -3,6 +3,10 @@ import {StyleSheet, View, Text,Image,Pressable, Animated} from 'react-native';
 import * as Font from 'expo-font';
 import {IP_ADDRESS} from '@env'
 
+if(IP_ADDRESS == null){
+    console.log('error')
+  }
+
 const url = `http://${IP_ADDRESS}:5000/users/picture/`
 
 function User(props){
