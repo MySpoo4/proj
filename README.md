@@ -1,4 +1,4 @@
-# spiel_assignment
+# proj
 Requirements
 - Expo Go (App)
 - Node.js (To run the server.js which starts up the server)
